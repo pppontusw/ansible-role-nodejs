@@ -1,0 +1,5 @@
+- name: restart node
+  service: 
+    name: nodejs
+    state: restarted
+  become: yes

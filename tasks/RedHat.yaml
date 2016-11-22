@@ -1,0 +1,9 @@
+- name: install node
+  yum: 
+    name: "{{item}}"
+    state: present
+  with_items: 
+    - nodejs
+    - npm
+    - git
+  become: yes
