@@ -33,5 +33,4 @@
   service: 
     name: "{{supervisor_name}}" 
     enabled: yes
-    state: started
   become: yes
