@@ -6,4 +6,5 @@
     - nodejs
     - npm
     - git
+    - supervisor
   become: yes
