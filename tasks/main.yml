@@ -21,14 +21,3 @@
   with_items:
     - "/usr/local/{{node_app_name}}"
     - "/var/log/{{node_app_name}}"
-
-- name: configure supervisord
-  template:
-    src: supervisor.conf.j2
-    dest: "{{supervisor_path}}/{{supervisor_conf_name}}"
-  notify: restart supervisor
-  become: yes
-
-- name: enable supervisord
-  shell: systemctl enable "{{supervisor_name}}" 
-  become: yes

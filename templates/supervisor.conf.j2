@@ -1,8 +1,0 @@
-[program:node-web]
-command=node {{node_start_path}}
-autostart=true
-autorestart=true
-stdout_logfile=/var/log/{{node_app_name}}/app.log
-stderr_logfile=/var/log/{{node_app_name}}/error.log
-user={{node_user}}
-environment=NODE_ENV={{node_env}}
