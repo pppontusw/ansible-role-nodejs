@@ -1,10 +1,9 @@
 - name: install node
-  apt: 
+  apt:
     name: "{{item}}"
     state: present
     update_cache: yes
-  with_items: 
+  with_items:
     - nodejs
     - npm
     - git
-  become: yes
