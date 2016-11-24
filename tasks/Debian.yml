@@ -9,5 +9,4 @@
     update_cache: yes
   with_items:
     - nodejs
-    - npm
     - git
