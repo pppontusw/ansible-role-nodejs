@@ -1,5 +1,3 @@
-- include_vars: "{{ ansible_os_family }}.yml"
-
 - include: "{{ ansible_os_family }}.yml"
   become: yes
 
@@ -21,17 +19,3 @@
   with_items:
     - "/usr/local/{{node_app_name}}"
     - "/var/log/{{node_app_name}}"
-
-- name: configure supervisord
-  template:
-    src: supervisor.conf.j2
-    dest: "{{supervisor_path}}/{{supervisor_conf_name}}"
-  notify: restart supervisor
-  become: yes
-
-- name: enable supervisord
-  systemd: 
-    name: "{{supervisor_name}}" 
-    enabled: yes
-    state: started
-  become: yes

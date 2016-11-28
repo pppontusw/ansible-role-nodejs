@@ -1,4 +1,2 @@
 node_app_name: default
 node_user: node
-node_start_path: "/usr/local/{{node_app_name}}/index.js"
-node_env: STAGING

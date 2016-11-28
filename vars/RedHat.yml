@@ -1,3 +1,0 @@
-supervisor_path: /etc/supervisord.d
-supervisor_name: supervisord
-supervisor_conf_name: "{{node_app_name}}.ini"
