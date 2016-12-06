@@ -1,5 +1,7 @@
 # Tests
 
+NOTE: Not finished yet
+
 ## With Vagrant
 
 ```
