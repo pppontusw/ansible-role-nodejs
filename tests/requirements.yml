@@ -1,0 +1,3 @@
+- src: https://github.com/Universum/ansible-role-nodejs.git
+  version: master
+  name: nodejs

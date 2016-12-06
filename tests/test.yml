@@ -1,0 +1,40 @@
+- name: setup
+  hosts: all
+  vars:
+    - test_app: |
+       var express = require('express')
+       var app = express()
+
+       app.get('/', function (req, res) {
+         res.send('Hello World!')
+       })
+
+       app.listen(3000, function () {
+         console.log('Example app listening on port 3000!')
+       })
+  roles: 
+    - nodejs
+  tasks:
+    - shell: "cd /usr/local/{{node_app_name}} && npm init && npm install express"
+      become: yes
+      become_user: "{{node_user}}"
+    - copy: 
+        dest: "/usr/local/{{node_app_name}}/app.js"
+        content: "{{test_app}}"
+        owner: "{{node_user}}"
+        group: "{{node_user}}"
+        mode: 0755
+      become: yes
+    - shell: "cd /usr/local/{{node_app_name}} && node app.js &"
+      become: yes
+      become_user: "{{node_user}}"
+  tags: setup
+
+- name: test
+  hosts: all
+  serial: 1
+  tasks:
+    - get_url:
+        url: "http://localhost:3000"
+        dest: /tmp
+  tags: test
