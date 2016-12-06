@@ -3,9 +3,5 @@
 - apt_repository:
     repo: 'deb https://deb.nodesource.com/node_7.x xenial main'
     state: present
-- apt:
-    name: "{{item}}"
-    state: present
-  with_items:
-    - nodejs
-    - git
+- shell: apt-get update && apt-get install nodejs git -y
+  become: yes
