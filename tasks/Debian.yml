@@ -3,6 +3,9 @@
 - apt_repository:
     repo: 'deb https://deb.nodesource.com/node_7.x xenial main'
     state: present
+- wait_for: 
+    path: /var/lib/dpkg/lock
+    state: absent
 - apt:
     name: "{{item}}"
     state: present
