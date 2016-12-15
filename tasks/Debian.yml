@@ -3,7 +3,7 @@
 - apt_repository:
     repo: 'deb https://deb.nodesource.com/node_7.x xenial main'
     state: present
-- wait_for: minutes=1
+- pause: minutes=1
 - apt:
     name: "{{item}}"
     state: present
